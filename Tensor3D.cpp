@@ -1,6 +1,6 @@
 // Tensor3D.tpp
-#ifndef TENSOR3D_TPP
-#define TENSOR3D_TPP
+#ifndef TENSOR3D_CPP
+#define TENSOR3D_CPP
 
 #include <stdexcept>
 

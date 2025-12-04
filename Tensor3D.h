@@ -32,5 +32,5 @@ public:
     Tensor3D<T> operator*(const Matrix<T>& m) const;
 };
 
-#include "Tensor3D.tpp"
+#include "Tensor3D.cpp"
 #endif
