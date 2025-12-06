@@ -1,4 +1,4 @@
-// Tensor3D.h
+
 #ifndef TENSOR3D_H
 #define TENSOR3D_H
 

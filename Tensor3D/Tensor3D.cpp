@@ -1,10 +1,8 @@
-// Tensor3D.tpp
 #ifndef TENSOR3D_CPP
 #define TENSOR3D_CPP
 
 #include <stdexcept>
 
-// Simple constructor
 template <typename T>
 Tensor3D<T>::Tensor3D(size_t d, size_t r, size_t c, T fill) {
     depth = d;
@@ -17,7 +15,6 @@ Tensor3D<T>::Tensor3D(size_t d, size_t r, size_t c, T fill) {
     );
 }
 
-// Initializer list constructor
 template <typename T>
 Tensor3D<T>::Tensor3D(
     std::initializer_list<std::initializer_list<std::initializer_list<T>>> vals) {
@@ -34,7 +31,6 @@ Tensor3D<T>::Tensor3D(
     }
 }
 
-// Element access
 template <typename T>
 T& Tensor3D<T>::operator()(size_t k, size_t r, size_t c) {
     return data[k][r][c];
@@ -45,7 +41,6 @@ const T& Tensor3D<T>::operator()(size_t k, size_t r, size_t c) const {
     return data[k][r][c];
 }
 
-// Tensor addition
 template <typename T>
 Tensor3D<T> Tensor3D<T>::operator+(const Tensor3D<T>& other) const {
     Tensor3D<T> out(depth, rows, cols, 0);
@@ -61,7 +56,6 @@ Tensor3D<T> Tensor3D<T>::operator+(const Tensor3D<T>& other) const {
     return out;
 }
 
-// Elementwise multiply
 template <typename T>
 Tensor3D<T> Tensor3D<T>::elemwiseMultiply(const Tensor3D<T>& other) const {
     Tensor3D<T> out(depth, rows, cols);
@@ -77,7 +71,6 @@ Tensor3D<T> Tensor3D<T>::elemwiseMultiply(const Tensor3D<T>& other) const {
     return out;
 }
 
-// Slice
 template <typename T>
 Matrix<T> Tensor3D<T>::slice(size_t k) const {
     Matrix<T> m(rows, cols);
@@ -91,7 +84,6 @@ Matrix<T> Tensor3D<T>::slice(size_t k) const {
     return m;
 }
 
-// Reshape
 template <typename T>
 void Tensor3D<T>::reshape(size_t newD, size_t newR, size_t newC) {
     std::vector<T> flat;
@@ -129,7 +121,6 @@ void Tensor3D<T>::reshape(size_t newD, size_t newR, size_t newC) {
     }
 }
 
-// Tensor × matrix
 template <typename T>
 Tensor3D<T> Tensor3D<T>::operator*(const Matrix<T>& m) const {
     Tensor3D<T> out(depth, rows, m.numCols(), 0);
